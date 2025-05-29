@@ -1,0 +1,65 @@
+.about-hero {
+  background: url('/img/hero_about.jpg') center/cover no-repeat;
+  color: #28a745;
+  padding: 40px 0;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-content {
+  padding: 10px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 50px;
+  align-items: center;
+}
+
+.about-text h2 {
+  margin-top: 0;
+  color: #28a745;
+}
+
+.about-text p {
+  line-height: 1.7;
+  color: #444;
+}
+
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 30px;
+}
+
+.about-list li {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.about-list i {
+  color: #28a745;
+  margin-right: 10px;
+}
+
+.cta-btn {
+  background-color: #28a745;
+  color: white !important;
+  padding: 12px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #1e7e34;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,325 @@
+  
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height      : 100vh;
+        }
+
+        .order-confirmation {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .order-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #eef2f7;
+            position: relative;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #28a745;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-icon i {
+            color: white;
+            font-size: 40px;
+        }
+
+        .order-header h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin: 15px 0;
+        }
+
+        .order-header p {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+
+        .order-details {
+            background: #f8fafb;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .order-details h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .order-details p {
+            margin: 10px 0;
+            color: #34495e;
+            font-size: 16px;
+        }
+
+        .delivery-info {
+            background: #f1f8ff;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-right: 4px solid #007bff;
+        }
+
+        .delivery-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .order-items {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            margin-bottom: 30px;
+        }
+
+        .order-items th, .order-items td {
+            text-align: center;
+            font-size: 15px;
+            padding: 10px 0;
+        }
+
+        .order-items th {
+            border-bottom: 2px solid #007bff;
+        }
+
+        .order-items td {
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-items tr:last-child td {
+            border-bottom: none;
+        }
+
+        .total-section {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .total-section p {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+
+        .status-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .status-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .status-step .step-icon {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border: 2px solid #007bff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: #007bff;
+        }
+
+        .status-step.active .step-icon {
+            background: #007bff;
+            color: white;
+        }
+
+        .status-step .step-label {
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .status-line {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            right: 40px;
+            height: 2px;
+            background: #eef2f7;
+            z-index: 0;
+        }
+
+        .print-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 30px 10px;
+            transition: all 0.3s ease;
+        }
+
+        .print-button:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body, .order-confirmation, .order-confirmation * {
+                color: #111 !important;
+                font-weight: 600 !important;
+                background: #fff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+        .pdf-export, .pdf-export * {
+            color: #000 !important;
+            font-weight: bold !important;
+            background: #fff !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+        }
+        .pdf-export {
+            width: 190mm !important;
+            min-width: 190mm !important;
+            max-width: 190mm !important;
+            margin: 0 auto !important;
+            padding: 10mm 5mm !important;
+            box-sizing: border-box !important;
+        }
+        .pdf-export .order-header {
+            margin-bottom: 10px !important;
+            padding-bottom: 10px !important;
+            border-bottom: 2px solid #000 !important;
+        }
+        .pdf-export .order-details,
+        .pdf-export .delivery-info {
+            margin-bottom: 10px !important;
+            padding: 8px !important;
+            border: 1px solid #000 !important;
+        }
+        .pdf-export .order-items {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            margin: 10px 0 !important;
+        }
+        .pdf-export .order-items th,
+        .pdf-export .order-items td {
+            border: 1px solid #000 !important;
+            padding: 6px !important;
+            text-align: left !important;
+        }
+        .pdf-export .total-section {
+            background: #fff !important;
+            padding: 8px !important;
+            margin-top: 10px !important;
+            border: 1px solid #000 !important;
+            color: #000 !important;
+        }
+        .pdf-export .success-icon {
+            border: 2px solid #000 !important;
+            background: #fff !important;
+            width: 40px !important;
+            height: 40px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 auto 10px !important;
+            font-size: 24px !important;
+        }
+        .pdf-export .success-icon i {
+            display: none !important;
+        }
+        .pdf-export .success-icon::after {
+            content: '✅';
+            font-size: 24px;
+            display: block;
+        }
+        /* Replace FontAwesome icons with emojis in PDF */
+        .pdf-export i.fas.fa-hashtag::before { content: '🔢'; }
+        .pdf-export i.far.fa-calendar-alt::before { content: '📅'; }
+        .pdf-export i.fas.fa-user::before { content: '👤'; }
+        .pdf-export i.fas.fa-envelope::before { content: '📧'; }
+        .pdf-export i.fas.fa-phone::before { content: '📞'; }
+        .pdf-export i.fas.fa-map-marker-alt::before { content: '🏠'; }
+        .pdf-export i.fas.fa-home::before { content: '🏠'; }
+        .pdf-export i.fas.fa-capsules::before { content: '💊'; }
+        .pdf-export i.fas.fa-shopping-cart::before { content: '🛒'; }
+        .pdf-export i.fas.fa-clipboard-check::before { content: '✔️'; }
+        .pdf-export i.fas.fa-box::before { content: '📦'; }
+        .pdf-export i.fas.fa-truck::before { content: '🚚'; }
+        .pdf-export i { color: #000 !important; }
+        .pdf-export .status-step .step-icon {
+            border: 1px solid #000 !important;
+            background: #fff !important;
+            color: #000 !important;
+        }
+        .pdf-export .status-line {
+            background: #000 !important;
+        }

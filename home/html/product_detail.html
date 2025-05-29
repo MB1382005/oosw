@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noarchive">
+
+  <title>Product Details</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/product_detail.css">
+  <link rel="stylesheet" href="../css/product_detail_fix.css">
+  <link rel="stylesheet" href="../css/home2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <a href="home2.html" class="branding">
+          <img src="../img/logo_home.png" alt="Pharmacy Logo" class="logo">
+          <span>Medisphere</span>
+        </a>
+
+        <div class="search-container">
+          <input type="search" placeholder="Search medications or products..." class="search-input" autocomplete="off">
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+          <div id="search-results" class="search-results"></div>
+        </div>
+
+        <nav class="main-nav" id="mainNav">
+          <a href="home2.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+          <a href="product.html" class="nav-link"><i class="fas fa-capsules"></i> Products</a>
+          <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+        </nav>
+
+        <div class="burger-menu" id="burgerMenu">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <nav class="more-nav" id="moreNav">
+          <a href="home2.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+          <a href="product.html" class="nav-link"><i class="fas fa-capsules"></i> Products</a>
+          <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+          <a href="About.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+          <a href="favorites.html" class="nav-link">
+            <i class="fas fa-heart"></i> Favorites
+            <span class="fav-count" id="favCount">0</span>
+          </a>
+          <a href="compare.html" class="nav-link"><i class="fas fa-balance-scale"></i> Compare</a>
+          <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> My Profile</a>
+          <a href="http://localhost/cgi-bin/script.py" class="nav-link"><i class="fas fa-robot"></i> Chatbot</a>
+          <a href="admin.html" class="nav-link"><i class="fas fa-user-shield"></i> Admin</a>
+          <a href="../../classes/logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+      </div>
+    </div>
+  </header> 
+  <main>
+    <div class="container">
+      <div class="product-card">
+        <div class="image-section">
+          <img src="https://via.placeholder.com/400x400" alt="Product Image">
+        </div>
+        <div class="info-section">
+          <h1 class="product-name">Loading...</h1>
+          <p class="brand">Brand: Loading...</p>
+          <p class="category">Category: Loading...</p>
+          <div class="product-rating">
+            <span class="stars">
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+            <span class="rating-value">(0.0)</span>
+            <span class="reviews-count">(0 reviews)</span>
+          </div>
+          <p class="price">$0.00</p>
+          <p class="stock">In Stock: 0</p>
+          <p class="expiration">Expires: N/A</p>
+          <p class="description">Loading description...</p>
+
+          <div class="buttons">
+            <button class="btn add-cart">
+              <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+            <button class="btn add-fav">
+              <i class="fas fa-heart"></i> Add to Favorites
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="reviews-section">
+        <h2>Product Reviews</h2>
+        <div class="review-summary">
+          <div class="average-rating">
+            <span class="rating-large">0.0</span>
+            <div class="stars-large">
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <p><span id="reviewsCount">0</span> Reviews</p>
+          </div>
+          <div class="rating-breakdown">
+            <div class="rating-bar">
+              <span>5 <i class="fas fa-star"></i></span>
+              <div class="bar-container"><div class="bar" style="width:0%"></div></div>
+              <span class="count">0</span>
+            </div>
+            <div class="rating-bar">
+              <span>4 <i class="fas fa-star"></i></span>
+              <div class="bar-container"><div class="bar" style="width:0%"></div></div>
+              <span class="count">0</span>
+            </div>
+            <div class="rating-bar">
+              <span>3 <i class="fas fa-star"></i></span>
+              <div class="bar-container"><div class="bar" style="width:0%"></div></div>
+              <span class="count">0</span>
+            </div>
+            <div class="rating-bar">
+              <span>2 <i class="fas fa-star"></i></span>
+              <div class="bar-container"><div class="bar" style="width:0%"></div></div>
+              <span class="count">0</span>
+            </div>
+            <div class="rating-bar">
+              <span>1 <i class="fas fa-star"></i></span>
+              <div class="bar-container"><div class="bar" style="width:0%"></div></div>
+              <span class="count">0</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="write-review">
+          <h3>Write a Review</h3>
+          <form id="reviewForm">
+            <input type="hidden" id="medicine_id" name="medicine_id">
+            <div class="form-group">
+              <label>Rating</label>
+              <div class="rating-selector">
+                <i class="far fa-star" data-rating="1"></i>
+                <i class="far fa-star" data-rating="2"></i>
+                <i class="far fa-star" data-rating="3"></i>
+                <i class="far fa-star" data-rating="4"></i>
+                <i class="far fa-star" data-rating="5"></i>
+                <input type="hidden" name="rating" id="rating" value="0" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="comment">Your Review</label>
+              <textarea id="comment" name="comment" rows="4" placeholder="Share your experience with this product" required></textarea>
+            </div>
+            <button type="submit" class="btn submit-review">Submit Review</button>
+            <div class="review-message"></div>
+          </form>
+        </div>
+        
+        <div class="reviews-list">
+          <div class="reviews-loading">Loading reviews...</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Contact Information</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> 6th of October City</li>
+            <li><i class="fas fa-phone"></i> +20 127 083 2397</li>
+            <li><i class="fas fa-envelope"></i> contact@medisphere.com</li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col map-col">
+          <h4>Our Location</h4>
+          <div class="map-container">
+            <iframe src="https://maps.google.com/maps?q=MSA+University&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2024 Medisphere Pharmacy. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <i class="fas fa-info-circle toast-icon"></i>
+      <div class="toast-message">Notification message</div>
+    </div>
+    <div class="toast-progress"></div>
+  </div>
+  
+  <script src="../js/product_detail_fix.js"></script>
+  <script src="../js/product.js"></script>
+  <script src="../js/home2.js"></script>
+  <script src="../js/product_detail.js"></script>
+</body>
+</html>

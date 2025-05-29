@@ -1,0 +1,10 @@
+{
+    "require": {
+        "khanamiryan/qrcode-detector-decoder": "*",
+        "ralouphie/getallheaders": "^3.0",
+        "phpmailer/phpmailer": "*",
+        "guzzlehttp/guzzle": "*",
+        "google/apiclient": "*",
+        "firebase/php-jwt": "*"
+    }
+}

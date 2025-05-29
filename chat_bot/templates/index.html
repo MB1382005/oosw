@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Medical Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Features</h2>
+            <button class="btn" onclick="showSection('alt')">Alternative</button>
+            <button class="btn" onclick="showSection('compare')">Compare</button>
+            <button class="btn" onclick="showSection('info')">Drug Info</button>
+        </div>
+
+        <div class="content">
+            <h1>Medical Chatbot</h1>
+
+            <div id="alt" class="section">
+                <label>Choose type of alternative:</label>
+                <select id="altType">
+                    <option value="cheaper">Cheaper</option>
+                    <option value="expensive">More Expensive</option>
+                    <option value="generic">Generic</option>
+                </select>
+
+                <div class="input-group">
+                    <label>Enter drug name:</label>
+                    <input type="text" id="altInput" placeholder="Enter drug name" />
+                </div>
+
+                <div id="altStrengthButtons" style="margin-top: 15px;"></div>
+
+                <button class="btn" onclick="handleSearch('alt')">Search</button>
+                <button class="btn" id="altFinalBtn" style="display:none;" onclick="sendRequest('alt')">Send</button>
+                <button class="btn" onclick="cancelRequest()">Cancel</button>
+            </div>
+            
+<div id="compare" class="section">
+    <div class="input-group">
+        <label>Enter first drug name:</label>
+        <input type="text" id="compareDrug1" />
+        <div id="status1" class="status-message" style="display: none; color: red;"></div>
+    </div>
+    
+    <div class="input-group">
+        <label>Enter second drug name:</label>
+        <input type="text" id="compareDrug2" />
+        <div id="status2" class="status-message" style="display: none; color: red;"></div>
+    </div>
+
+    <button class="btn" id="compareSearchBtn" onclick="handleSearch('compare')">Search</button>
+
+    <div id="compare1StrengthButtons" style="margin-top: 15px;"></div>
+    <div id="compare2StrengthButtons" style="margin-top: 15px;"></div>
+
+    <button class="btn" id="compareFinalBtn" style="display:none;" onclick="sendRequest('compare')">Send</button>
+    <button class="btn" onclick="cancelRequest()">Cancel</button>
+</div>
+
+
+
+
+<div id="info" class="section">
+    <div class="input-group">
+        <label>Enter drug name:</label>
+        <input type="text" id="infoDrug" placeholder="Enter drug name" />
+        <div id="infoStatus" class="status-message" style="display: none; color: red;"></div>
+    </div>
+
+    <div class="input-group">
+        <label>Select information you need:</label>
+        <div id="infoButtons" style="display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0;">
+          <button class="info-btn" data-value="PHARMACEUTICAL FORM">PHARMACEUTICAL FORM</button>
+          <button class="info-btn" data-value="PACK SIZE">PACK SIZE</button>
+          <button class="info-btn" data-value="RETAIL PRICE BD">RETAIL PRICE BD</button>
+          <button class="info-btn" data-value="SHELF-LIFE (MONTHS)">SHELF-LIFE (MONTHS)</button>
+          <button class="info-btn" data-value="ACTIVE SUBSTANCES">ACTIVE SUBSTANCES</button>
+          <button class="info-btn" data-value="STORAGE CONDITIONS">STORAGE CONDITIONS</button>
+        </div>
+      </div>
+      <script>
+        document.querySelectorAll('.info-btn').forEach(button => {
+          button.addEventListener('click', function() {
+            button.classList.toggle('selected');
+          });
+        });
+      </script>
+      
+     
+      
+
+    <div id="infoStrengthButtons" style="margin-top: 15px;"></div>
+
+    <button class="btn" id="infoSearchBtn" onclick="handleSearch('info')">Search</button>
+    <button class="btn" id="infoFinalBtn" style="display:none;" onclick="sendRequest('info')">Send</button>
+    <button class="btn" onclick="cancelRequest()">Cancel</button>
+</div>
+
+
+           <div id="response" class="response-box"></div>
+
+        </div>
+    </div>
+
+
+    <p class="footer">
+        Disclaimer: The information provided by this chatbot may not be 100% accurate. Please consult a doctor for professional medical advice.
+    </p>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

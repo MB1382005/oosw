@@ -1,0 +1,76 @@
+
+/* Ensure the favorites button is clickable */
+.add-fav {
+    position: relative;
+    z-index: 10; /* Ensure button sits on top of other elements */
+    cursor: pointer !important;
+    user-select: none;
+    pointer-events: auto !important;
+    background-color: #ff6b6b !important; /* Attention-grabbing red */
+    border: none !important;
+    color: white !important;
+    font-weight: bold !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+    margin: 5px !important;
+    outline: none !important;
+}
+
+/* Style for when favorite has been added */
+.add-fav.added {
+    background-color: #f8d7da !important;
+    border-color: #c3adb2 !important;
+    color: #721c24 !important;
+}
+
+/* Make the cart button stand out too */
+.add-cart {
+    position: relative;
+    z-index: 10; /* Ensure button sits on top */
+    cursor: pointer !important;
+    user-select: none;
+    pointer-events: auto !important;
+    background-color: #4bb543 !important; /* Nice green */
+    border: none !important;
+    color: white !important;
+    font-weight: bold !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+    margin: 5px !important;
+    outline: none !important;
+}
+
+/* Make sure toast notification is visible */
+.toast {
+    z-index: 9999;
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    min-width: 250px !important;
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    color: white !important;
+    padding: 15px !important;
+    border-radius: 5px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out !important;
+}
+
+.toast.show {
+    opacity: 1 !important;
+}
+
+/* Fix button hover effects */
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Add clear visual feedback when button is pressed */
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 

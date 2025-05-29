@@ -1,0 +1,294 @@
+[19-May-2025 23:27:24 Europe/Berlin] Request Debug: Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw_input] => {"name":"mohammed","email":"mohamed.bahaa5@msa.edu.eg","phone":"01023590395","amount":"250","address":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","card_number":"","expiry":"","cvv":"","wallet_number":"","payment_method":"cash","delivery_notes":""}
+    [post_data] => Array
+        (
+        )
+
+    [get_data] => Array
+        (
+        )
+
+    [headers] => Array
+        (
+            [Host] => localhost
+            [Connection] => keep-alive
+            [Content-Length] => 268
+            [sec-ch-ua-platform] => "Windows"
+            [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+            [Accept] => application/json
+            [sec-ch-ua] => "Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"
+            [Content-Type] => application/json
+            [sec-ch-ua-mobile] => ?0
+            [Origin] => http://localhost
+            [Sec-Fetch-Site] => same-origin
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Dest] => empty
+            [Referer] => http://localhost/oop/home/html/payment.html
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Accept-Language] => en-US,en;q=0.9,ar;q=0.8
+            [Cookie] => PHPSESSID=a48i8rdcje87al40pkv05vhpph
+        )
+
+)
+
+[19-May-2025 23:27:24 Europe/Berlin] General error: PayCash::__construct(): Argument #6 ($deliveryNotes) must be of type string, null given, called in C:\xampp2\htdocs\oop\process_payment.php on line 234
+#0 C:\xampp2\htdocs\oop\process_payment.php(234): PayCash->__construct(250.0, 'mohammed', 'mohamed.bahaa5@...', '01023590395', 'aaaaaaaaaaaaaaa...', NULL)
+#1 {main}
+[19-May-2025 23:29:22 Europe/Berlin] Session Debug: Array
+(
+    [session_id] => a48i8rdcje87al40pkv05vhpph
+    [session_status] => 2
+    [session_data] => Array
+        (
+            [userId] => 5
+        )
+
+    [session_name] => PHPSESSID
+    [session_cookie_params] => Array
+        (
+            [lifetime] => 0
+            [path] => /
+            [domain] => 
+            [secure] => 
+            [httponly] => 
+            [samesite] => 
+        )
+
+)
+
+[19-May-2025 23:29:22 Europe/Berlin] Request Debug: Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw_input] => {"name":"mohammed","email":"mohamed.bahaa5@msa.edu.eg","phone":"01023590395","amount":"250","address":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","card_number":"","expiry":"","cvv":"","wallet_number":"","payment_method":"cash","delivery_notes":""}
+    [post_data] => Array
+        (
+        )
+
+    [get_data] => Array
+        (
+        )
+
+    [headers] => Array
+        (
+            [Host] => localhost
+            [Connection] => keep-alive
+            [Content-Length] => 268
+            [sec-ch-ua-platform] => "Windows"
+            [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+            [Accept] => application/json
+            [sec-ch-ua] => "Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"
+            [Content-Type] => application/json
+            [sec-ch-ua-mobile] => ?0
+            [Origin] => http://localhost
+            [Sec-Fetch-Site] => same-origin
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Dest] => empty
+            [Referer] => http://localhost/oop/home/html/payment.html
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Accept-Language] => en-US,en;q=0.9,ar;q=0.8
+            [Cookie] => PHPSESSID=a48i8rdcje87al40pkv05vhpph
+        )
+
+    [server] => Array
+        (
+            [PHP_SELF] => /oop/process_payment.php
+            [SCRIPT_NAME] => /oop/process_payment.php
+            [SCRIPT_FILENAME] => C:/xampp2/htdocs/oop/process_payment.php
+            [DOCUMENT_ROOT] => C:/xampp2/htdocs
+            [REQUEST_URI] => /oop/process_payment.php
+        )
+
+)
+
+[19-May-2025 23:29:22 Europe/Berlin] General error: PayCash::__construct(): Argument #6 ($deliveryNotes) must be of type string, null given, called in C:\xampp2\htdocs\oop\process_payment.php on line 292
+#0 C:\xampp2\htdocs\oop\process_payment.php(292): PayCash->__construct(250.0, 'mohammed', 'mohamed.bahaa5@...', '01023590395', 'aaaaaaaaaaaaaaa...', NULL)
+#1 {main}
+[19-May-2025 23:29:22 Europe/Berlin] Session Debug: Array
+(
+    [session_id] => a48i8rdcje87al40pkv05vhpph
+    [session_status] => 2
+    [session_data] => Array
+        (
+            [userId] => 5
+        )
+
+    [session_name] => PHPSESSID
+    [session_cookie_params] => Array
+        (
+            [lifetime] => 0
+            [path] => /
+            [domain] => 
+            [secure] => 
+            [httponly] => 
+            [samesite] => 
+        )
+
+)
+
+[19-May-2025 23:30:02 Europe/Berlin] Session Debug: Array
+(
+    [session_id] => a48i8rdcje87al40pkv05vhpph
+    [session_status] => 2
+    [session_data] => Array
+        (
+            [userId] => 5
+        )
+
+    [session_name] => PHPSESSID
+    [session_cookie_params] => Array
+        (
+            [lifetime] => 0
+            [path] => /
+            [domain] => 
+            [secure] => 
+            [httponly] => 
+            [samesite] => 
+        )
+
+)
+
+[19-May-2025 23:30:02 Europe/Berlin] Request Debug: Array
+(
+    [method] => POST
+    [content_type] => application/json
+    [raw_input] => {"name":"mohammed","email":"mohamed.bahaa5@msa.edu.eg","phone":"01023590395","amount":"250","address":"shdbhubuhbvinIDN0vuuhfvi9vson-sau","card_number":"","expiry":"","cvv":"","wallet_number":"","payment_method":"cash","delivery_notes":""}
+    [post_data] => Array
+        (
+        )
+
+    [get_data] => Array
+        (
+        )
+
+    [headers] => Array
+        (
+            [Host] => localhost
+            [Connection] => keep-alive
+            [Content-Length] => 239
+            [sec-ch-ua-platform] => "Windows"
+            [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+            [Accept] => application/json
+            [sec-ch-ua] => "Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"
+            [Content-Type] => application/json
+            [sec-ch-ua-mobile] => ?0
+            [Origin] => http://localhost
+            [Sec-Fetch-Site] => same-origin
+            [Sec-Fetch-Mode] => cors
+            [Sec-Fetch-Dest] => empty
+            [Referer] => http://localhost/oop/home/html/payment.html
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Accept-Language] => en-US,en;q=0.9,ar;q=0.8
+            [Cookie] => PHPSESSID=a48i8rdcje87al40pkv05vhpph
+        )
+
+    [server] => Array
+        (
+            [PHP_SELF] => /oop/process_payment.php
+            [SCRIPT_NAME] => /oop/process_payment.php
+            [SCRIPT_FILENAME] => C:/xampp2/htdocs/oop/process_payment.php
+            [DOCUMENT_ROOT] => C:/xampp2/htdocs
+            [REQUEST_URI] => /oop/process_payment.php
+        )
+
+)
+
+[19-May-2025 23:30:02 Europe/Berlin] General error: PayCash::__construct(): Argument #6 ($deliveryNotes) must be of type string, null given, called in C:\xampp2\htdocs\oop\process_payment.php on line 292
+#0 C:\xampp2\htdocs\oop\process_payment.php(292): PayCash->__construct(250.0, 'mohammed', 'mohamed.bahaa5@...', '01023590395', 'shdbhubuhbvinID...', NULL)
+#1 {main}
+[19-May-2025 23:30:02 Europe/Berlin] Session Debug: Array
+(
+    [session_id] => a48i8rdcje87al40pkv05vhpph
+    [session_status] => 2
+    [session_data] => Array
+        (
+            [userId] => 5
+        )
+
+    [session_name] => PHPSESSID
+    [session_cookie_params] => Array
+        (
+            [lifetime] => 0
+            [path] => /
+            [domain] => 
+            [secure] => 
+            [httponly] => 
+            [samesite] => 
+        )
+
+)
+
+[20-May-2025 00:06:03 Europe/Berlin] Request Debug: Array
+(
+    [method] => GET
+    [content_type] => not set
+    [raw_input] => 
+    [post_data] => Array
+        (
+        )
+
+    [get_data] => Array
+        (
+        )
+
+    [headers] => Array
+        (
+            [Host] => localhost
+            [Connection] => keep-alive
+            [Cache-Control] => max-age=0
+            [sec-ch-ua] => "Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"
+            [sec-ch-ua-mobile] => ?0
+            [sec-ch-ua-platform] => "Windows"
+            [Upgrade-Insecure-Requests] => 1
+            [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+            [Accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+            [Sec-Fetch-Site] => same-origin
+            [Sec-Fetch-Mode] => navigate
+            [Sec-Fetch-User] => ?1
+            [Sec-Fetch-Dest] => document
+            [Referer] => http://localhost/oop/
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Accept-Language] => en-US,en;q=0.9,ar;q=0.8
+            [Cookie] => PHPSESSID=uq6q2p58480ufgk7f7iievtivu
+        )
+
+)
+
+[22-May-2025 08:35:23 Europe/Berlin] Request Debug: Array
+(
+    [method] => GET
+    [content_type] => not set
+    [raw_input] => 
+    [post_data] => Array
+        (
+        )
+
+    [get_data] => Array
+        (
+        )
+
+    [headers] => Array
+        (
+            [Host] => localhost
+            [Connection] => keep-alive
+            [sec-ch-ua] => "Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"
+            [sec-ch-ua-mobile] => ?0
+            [sec-ch-ua-platform] => "Windows"
+            [Upgrade-Insecure-Requests] => 1
+            [User-Agent] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+            [Accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+            [Sec-Fetch-Site] => same-origin
+            [Sec-Fetch-Mode] => navigate
+            [Sec-Fetch-User] => ?1
+            [Sec-Fetch-Dest] => document
+            [Referer] => http://localhost/oop/
+            [Accept-Encoding] => gzip, deflate, br, zstd
+            [Accept-Language] => en-US,en;q=0.9
+            [Cookie] => PHPSESSID=gh3b6699i23geps3qf8l5nbo7s
+        )
+
+)
+

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noarchive">
+
+  <title>Medisphere Pharmacy - Your Trusted Healthcare Partner</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/home2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <a href="home2.html" class="branding">
+          <img src="../img/logo_home.png" alt="Pharmacy Logo" class="logo">
+          <span>Medisphere</span>
+        </a>
+
+        <div class="search-container">
+          <input type="search" placeholder="Search medications or products..." class="search-input" autocomplete="off">
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+          <div id="search-results" class="search-results"></div>
+        </div>
+
+        <nav class="main-nav" id="mainNav">
+          <a href="home2.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+          <a href="product.html" class="nav-link"><i class="fas fa-capsules"></i> Products</a>
+          <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+        </nav>
+
+        <div class="burger-menu" id="burgerMenu">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <nav class="more-nav" id="moreNav">
+          <a href="home2.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+          <a href="product.html" class="nav-link"><i class="fas fa-capsules"></i> Products</a>
+          <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+          <a href="About.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+          <a href="favorites.html" class="nav-link">
+            <i class="fas fa-heart"></i> Favorites
+            <span class="fav-count" id="favCount">0</span>
+          </a>
+          <a href="compare.html" class="nav-link"><i class="fas fa-balance-scale"></i> Compare</a>
+          <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> My Profile</a>
+          <a href="http://localhost/cgi-bin/script.py" target="_blank" class="nav-link"><i class="fas fa-robot"></i> Chatbot </a>
+          <a href="admin.html" class="nav-link"><i class="fas fa-user-shield"></i> Admin</a>
+          <a href="../../classes/logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 class="hero-title">Comprehensive Healthcare Delivered to You</h1>
+            <p class="hero-text">Free delivery on all orders over $50</p>
+            <div class="cta-group">
+              <a href="product.html" class="cta-btn">Browse Products</a>
+              <a href="About.html" class="cta-btn outline">Learn More</a>
+            </div>
+          </div>
+          <div class="hero-img">
+            <img src="../img/content_home.png" alt="Pharmacy Team">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-slider">
+      <div class="slider-container" id="sliderContainer">
+        <div class="slide active">
+          <img src="../img/us1.png" alt="Slide 1">
+          <div class="slide-content">
+            <h2>Quality Healthcare</h2>
+            <p>Your trusted partner in health and wellness</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="../img/us2.jpg" alt="Slide 2">
+          <div class="slide-content">
+            <h2>Expert Consultation</h2>
+            <p>Professional advice from healthcare experts</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="../img/us3.jpg" alt="Slide 3">
+          <div class="slide-content">
+            <h2>Fast Delivery</h2>
+            <p>Quick and reliable delivery service</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="../img/chatbot.png" alt="Slide 4">
+          <div class="slide-content">
+            <h2>24/7 Support</h2>
+            <p>Always here to help you</p>
+          </div>
+        </div>
+
+        <button class="slider-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <section class="categories">
+      <div class="container">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="categories-grid">
+          <div class="categories-loading">
+            <i class="fas fa-spinner fa-spin"></i> Loading categories...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-clock"></i>
+            <h3>24/7 Service</h3>
+            <p>Emergency services available round the clock</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-truck"></i>
+            <h3>Fast Delivery</h3>
+            <p>Quick and reliable delivery to your doorstep</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-user-md"></i>
+            <h3>Expert Consultation</h3>
+            <p>Professional advice from healthcare experts</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Secure Payment</h3>
+            <p>Safe and secure payment options</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Contact Information</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> 6th of October City</li>
+            <li><i class="fas fa-phone"></i> +20 127 083 2397</li>
+            <li><i class="fas fa-envelope"></i> contact@medisphere.com</li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Terms of Service</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> FAQ</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col map-col">
+          <h4>Our Location</h4>
+          <div class="map-container">
+            <iframe src="https://maps.google.com/maps?q=MSA+University&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2024 Medisphere Pharmacy. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="../js/product.js"></script>
+  <script src="../js/home2.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../js/favorites.js"></script>
+</body>
+</html>

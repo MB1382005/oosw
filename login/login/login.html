@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="login.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <title>Log in</title>
+</head>
+<body>
+  <div class="container" id="signUp">
+    <h1 class="form-title">Register</h1>
+    <form action="/oop/classes/user.php" method="post" id="signUpForm">
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" name="fname" id="fname" placeholder="First Name" required />
+        <label for="fname">First Name</label>
+        <span class="error-message" id="fname-error"></span>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" name="lname" id="lname" placeholder="Last Name" required />
+        <label for="lname">Last Name</label>
+        <span class="error-message" id="lname-error"></span>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" name="email" id="EmailOne" placeholder="Email" required />
+        <label for="EmailOne">Email</label>
+        <span class="error-message" id="emailOne-error"></span>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password" id="PasswordOne" placeholder="Password" required class="password" />
+        <label for="PasswordOne">Password</label>
+        <img src="hidden.png" alt="hidden" class="Eyes" loading="lazy"/>
+        <span class="error-message" id="passwordOne-error"></span>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="confirm_password" id="ConfirmPasswordOne" placeholder="Confirm Password" required class="password" />
+        <label for="ConfirmPasswordOne">Confirm Password</label>
+        <img src="hidden.png" alt="hidden" class="Eyes" loading="lazy"/>
+        <span class="error-message" id="confirmPasswordOne-error"></span>
+      </div>
+      <div id="resultBoxSignUp" class="result-box"></div>
+      <input type="submit" value="Sign Up" class="btn" name="signUp" />
+    </form>
+    <p class="or">-------- or --------</p>
+    <div class="icons">
+      <i class="fab fa-google"></i>
+    </div>
+    <div class="links">
+      <p>Already Have Account?</p>
+      <button id="signInButton">Sign In</button>
+    </div>
+  </div>
+
+  <div class="container" id="signIn">
+    <h1 class="form-title">Sign In</h1>
+    <form action="/oop/classes/user.php" method="post" id="signInForm">
+      <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" name="email" id="EmailTwo" placeholder="Email" required />
+        <label for="EmailTwo">Email</label>
+        <span class="error-message" id="emailTwo-error"></span>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password" id="PasswordTwo" placeholder="Password" required class="password" />
+        <label for="PasswordTwo">Password</label>
+        <img src="hidden.png" alt="hidden" class="Eyes" loading="lazy"/>
+        <span class="error-message" id="passwordTwo-error"></span>
+      </div>
+      <div id="resultBoxSignIn" class="result-box"></div>
+      <p class="recover">
+        <a href="#" id="recoverPasswordButton">Recover Password</a>
+      </p>
+      <input type="submit" value="Sign In" class="btn" name="signIn" />
+    </form>
+    <p class="or">-------- or --------</p>
+    <div class="icons">
+      <i class="fab fa-google"></i>
+    </div>
+    <div class="links">
+      <p>Don't have account yet?</p>
+      <button id="signUpButton">Sign Up</button>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

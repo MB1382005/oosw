@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="robots" content="noarchive">
+
+    <title>User management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin_orders.css">
+</head>
+<body>
+    <header class="admin-navbar">
+        <h1><i class="fas fa-clinic-medical"></i> User management</h1>
+        <nav>
+          <a href="home2.html"><i class="fas fa-home"></i> Home</a>
+          <a href="admin_orders.html"><i class="fas fa-box"></i> Orders</a>
+          <a href="users.html"><i class="fas fa-users"></i> Users</a>
+          <a href="admin_product.html"><i class="fas fa-pills"></i> Products</a>
+          <a href="generate_report.html" class="active"><i class="fas fa-chart-line"></i> Report</a>
+
+          <a href="../../classes/logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+        </nav>
+    </header>
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+        <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Message</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body"></div>
+        </div>
+    </div>
+    <div class="loading d-none">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div>
+                    <button class="btn btn-secondary me-2" onclick="window.history.back()">
+                        <i class="fas fa-arrow-right"></i> back
+                    </button>
+                    <span class="fw-bold">User management</span>
+                </div>
+                <button class="btn btn-add" onclick="openAddModal()">
+                    <i class="fas fa-plus"></i> Add a new user
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>name</th>
+                                <th>Email</th>
+                                <th>Phone number</th>
+                                <th>address</th>
+                                <th>Manager</th>
+                                <th>procedures</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="userModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Add a new user</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="userForm">
+                        <input type="hidden" id="userId">
+                        <div class="mb-3">
+                            <label class="form-label">First name</label>
+                            <input type="text" class="form-control" id="fname" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Last name</label>
+                            <input type="text" class="form-control" id="lname" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone number</label>
+                            <input type="tel" class="form-control" id="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">address</label>
+                            <input type="text" class="form-control" id="address">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="is_admin">
+                                <label class="form-check-label">System Administrator</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveUser()">save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/users.js"></script>
+</body>
+</html>

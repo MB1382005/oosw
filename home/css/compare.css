@@ -1,0 +1,32 @@
+.comparison-grid {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.compare-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  width: 250px;
+  flex-shrink: 0;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.compare-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.remove-compare {
+  margin-top: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}

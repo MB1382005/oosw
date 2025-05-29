@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="robots" content="noarchive">
+
+  <title>User Profile | Medisphere</title>
+  <link rel="stylesheet" href="../css/home2.css">
+  <link rel="stylesheet" href="../css/profile.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <a href="home2.html" class="branding">
+          <img src="../img/logo_home.png" alt="Pharmacy Logo" class="logo">
+          <span>Medisphere</span>
+        </a>
+
+        <div class="search-container">
+          <input type="search" placeholder="Search medications or products..." class="search-input" autocomplete="off">
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+          <div id="search-results" class="search-results"></div>
+        </div>
+
+        <nav class="main-nav" id="mainNav">
+          <a href="home2.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+          <a href="product.html" class="nav-link"><i class="fas fa-capsules"></i> Products</a>
+          <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+        </nav>
+
+        <div class="burger-menu" id="burgerMenu">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <nav class="more-nav" id="moreNav">
+          <a href="home2.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+          <a href="product.html" class="nav-link"><i class="fas fa-capsules"></i> Products</a>
+          <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
+          <a href="About.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+          <a href="favorites.html" class="nav-link">
+            <i class="fas fa-heart"></i> Favorites
+            <span class="fav-count" id="favCount">0</span>
+          </a>
+          <a href="compare.html" class="nav-link"><i class="fas fa-balance-scale"></i> Compare</a>
+          <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> My Profile</a>
+          <a href="http://localhost/cgi-bin/script.py" class="nav-link"><i class="fas fa-robot"></i> Chatbot</a>
+          <a href="admin.html" class="nav-link"><i class="fas fa-user-shield"></i> Admin</a>
+          <a href="../../classes/logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <main class="profile-container">
+    <div class="profile-card">
+  <div class="profile-header">
+    <img src="../img/user.png" alt="User Avatar" class="profile-avatar" />
+    <h2 id="userName">User Name</h2>
+    <p id="userEmail">user@email.com</p>
+  </div>
+
+  <div class="tab-buttons">
+    <button onclick="showTab('info')" class="tab-btn active">Profile Info</button>
+    <button onclick="showTab('favorites')" class="tab-btn">Favorites</button>
+    <button onclick="showTab('orders')" class="tab-btn">Orders</button>
+    <button onclick="showTab('address')" class="tab-btn">Address</button>
+  </div>
+
+  <div class="tab-content" id="infoTab">
+    <div class="profile-info">
+      <p><strong>Phone:</strong> <span id="userPhone">+20 123 456 7890</span></p>
+      <p><strong>Address:</strong> <span id="userAddress">6 October City</span></p>
+    </div>
+    <div class="profile-actions">
+      <button onclick="editProfile()">Edit Profile</button>
+      <button onclick="changePassword()">Change Password</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="tab-content" id="favoritesTab" style="display:none;">
+    <h3>Your Favorites</h3>
+    <ul id="favoritesList"></ul>
+  </div>
+
+  <div class="tab-content" id="ordersTab" style="display:none;">
+    <h3>Order History</h3>
+    <p>🔄 Coming soon or to be connected to API</p>
+    <h2>Your Orders</h2>
+    <ul id="ordersList"></ul>
+  </div>
+
+  <div class="tab-content" id="addressTab" style="display:none;">
+    <h3>Preferred Address</h3>
+    <p id="preferredAddress"></p>
+  </div>
+</div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Contact Information</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> 6th of October City</li>
+            <li><i class="fas fa-phone"></i> +20 127 083 2397</li>
+            <li><i class="fas fa-envelope"></i> contact@medisphere.com</li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+            <li><a href="#"><i class="fas fa-angle-right"></i> Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col map-col">
+          <h4>Our Location</h4>
+          <div class="map-container">
+            <iframe src="https://maps.google.com/maps?q=MSA+University&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>© 2024 Medisphere Pharmacy. All rights reserved</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/home2.js"></script>
+  <script src="../js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noarchive">
+
+  <title>Generate Report - Medisphere</title>
+  <link rel="stylesheet" href="../css/Admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .filter-section {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .filter-section input[type="date"] {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: inherit;
+    }
+    .filter-section button {
+      padding: 0.5rem 1rem;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: inherit;
+    }
+    .filter-section button:hover {
+      background-color: #27ae60;
+      transform: translateY(-2px);
+    }
+    .download-btn {
+      background-color: #3498db;
+    }
+    .download-btn:hover {
+      background-color: #2980b9;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .stat-box {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .stat-box:hover {
+      transform: translateY(-5px);
+    }
+    .stat-box i {
+      color: #3498db;
+      margin-bottom: 1rem;
+    }
+    .stat-box h3 {
+      color: #2c3e50;
+      margin: 0.5rem 0;
+    }
+    .stat-box p {
+      font-size: 1.5rem;
+      color: #2ecc71;
+      margin: 0.5rem 0;
+      font-weight: bold;
+    }
+    .stat-box small {
+      color: #7f8c8d;
+    }
+    .chart-container {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    .top-products {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .top-products table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    .top-products th, .top-products td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    .top-products th {
+      background: #f8f9fa;
+      font-weight: 600;
+    }
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      display: none;
+    }
+    .loading i {
+      font-size: 2rem;
+      color: #3498db;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="admin-navbar">
+    <h1><i class="fas fa-clinic-medical"></i> User management</h1>
+    <nav>
+      <a href="home2.html"><i class="fas fa-home"></i> Home</a>
+      <a href="admin_orders.html"><i class="fas fa-box"></i> Orders</a>
+      <a href="users.html"><i class="fas fa-users"></i> Users</a>
+      <a href="admin_product.html"><i class="fas fa-pills"></i> Products</a>
+      <a href="generate_report.html" class="active"><i class="fas fa-chart-line"></i> Report</a>
+      <a href="../../classes/logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+    </nav>
+</header>
+
+  <main class="admin-main">
+    <section class="dashboard-section">
+      <h2><i class="fas fa-chart-line"></i> Sales Report</h2>
+      <p>View custom sales reports by date range</p>
+
+      <div class="filter-section">
+        <label>From: <input type="date" id="fromDate"></label>
+        <label>To: <input type="date" id="toDate"></label>
+        <button onclick="fetchReport()">Generate</button>
+        <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
+      </div>
+
+      <div class="loading" id="loading">
+        <i class="fas fa-spinner"></i>
+        <p>Generating report...</p>
+      </div>
+
+      <div id="report-container">
+        <div class="stats-grid" id="stats-grid">
+        </div>
+
+        <div class="chart-container">
+          <canvas id="salesChart"></canvas>
+        </div>
+
+        <div class="top-products">
+          <h3><i class="fas fa-trophy"></i> Top Selling Products</h3>
+          <table id="topProductsTable">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Units Sold</th>
+                <th>Revenue</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    let salesChart = null;
+
+    async function fetchReport() {
+      const from = document.getElementById("fromDate").value;
+      const to = document.getElementById("toDate").value;
+      
+      if (!from || !to) {
+        alert('Please select both date range');
+        return;
+      }
+
+      document.getElementById('loading').style.display = 'block';
+      
+      try {
+        const res = await fetch(`../../manger_panel/generate_report.php?from=${from}&to=${to}`);
+        const data = await res.json();
+
+        if (data.success) {
+          updateStats(data.stats);
+          updateChart(data.stats.sales_trend);
+          updateTopProducts(data.stats.top_products);
+        } else {
+          let errorMessage = data.message;
+          if (data.debug && data.debug.error) {
+            console.error('Detailed error:', data.debug);
+            errorMessage += '\n\nTechnical details: ' + data.debug.error;
+          }
+          alert(errorMessage);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error generating report: ' + error.message);
+      } finally {
+        document.getElementById('loading').style.display = 'none';
+      }
+    }
+
+    function updateStats(stats) {
+      const grid = document.getElementById('stats-grid');
+      grid.innerHTML = `
+        <div class="stat-box">
+          <i class="fas fa-money-bill-wave fa-2x"></i>
+          <h3>Total Sales</h3>
+          <p>${stats.total_sales} SAR</p>
+          <small>In selected period</small>
+        </div>
+
+        <div class="stat-box">
+          <i class="fas fa-shopping-cart fa-2x"></i>
+          <h3>Total Orders</h3>
+          <p>${stats.total_orders}</p>
+          <small>Completed Orders</small>
+        </div>
+
+        <div class="stat-box">
+          <i class="fas fa-users fa-2x"></i>
+          <h3>Unique Customers</h3>
+          <p>${stats.unique_customers}</p>
+          <small>Active Customers</small>
+        </div>
+
+        <div class="stat-box">
+          <i class="fas fa-chart-pie fa-2x"></i>
+          <h3>Average Order Value</h3>
+          <p>${stats.average_order_value} SAR</p>
+          <small>Per Order</small>
+        </div>
+      `;
+    }
+
+    function updateChart(salesTrend) {
+      const ctx = document.getElementById('salesChart').getContext('2d');
+      
+      if (salesChart) {
+        salesChart.destroy();
+      }
+
+      const labels = salesTrend.map(item => item.date);
+      const salesData = salesTrend.map(item => item.sales);
+      const ordersData = salesTrend.map(item => item.orders);
+
+      salesChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Sales (EGP)',
+            data: salesData,
+            borderColor: '#2ecc71',
+            tension: 0.1
+          }, {
+            label: 'Orders',
+            data: ordersData,
+            borderColor: '#3498db',
+            tension: 0.1,
+            yAxisID: 'y1'
+          }]
+        },
+        options: {
+          responsive: true,
+          interaction: {
+            mode: 'index',
+            intersect: false,
+          },
+          scales: {
+            y: {
+              type: 'linear',
+              display: true,
+              position: 'left',
+              title: {
+                display: true,
+                text: 'Sales (EGP)'
+              }
+            },
+            y1: {
+              type: 'linear',
+              display: true,
+              position: 'right',
+              title: {
+                display: true,
+                text: 'Number of Orders'
+              },
+              grid: {
+                drawOnChartArea: false
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function updateTopProducts(products) {
+      const tbody = document.querySelector('#topProductsTable tbody');
+      tbody.innerHTML = products.map(product => `
+        <tr>
+          <td>${product.name}</td>
+          <td>${product.total_sold}</td>
+          <td>${product.total_revenue} EG </td>
+        </tr>
+      `).join('');
+    }
+
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF('p', 'mm', 'a4');
+      
+      doc.setFontSize(20);
+      doc.text("Medisphere - Sales Report", 20, 20);
+      
+      doc.setFontSize(12);
+      const fromDate = document.getElementById("fromDate").value;
+      const toDate = document.getElementById("toDate").value;
+      doc.text(`Report Period: ${fromDate} to ${toDate}`, 20, 30);
+
+      doc.setFontSize(14);
+      doc.text("Summary Statistics", 20, 45);
+      doc.setFontSize(12);
+      
+      const stats = document.querySelectorAll('.stat-box');
+      let yPos = 55;
+      stats.forEach((stat, index) => {
+        const title = stat.querySelector('h3').textContent;
+        const value = stat.querySelector('p').textContent;
+        doc.text(`${title}: ${value}`, 20, yPos);
+        yPos += 10;
+      });
+
+      yPos += 10;
+      doc.text("Sales Trend", 20, yPos);
+      yPos += 10;
+      
+      const chartCanvas = document.getElementById('salesChart');
+      const chartImage = await html2canvas(chartCanvas);
+      const imgData = chartImage.toDataURL('image/png');
+      doc.addImage(imgData, 'PNG', 20, yPos, 170, 100);
+
+      yPos += 120;
+      doc.text("Top Selling Products", 20, yPos);
+      yPos += 10;
+
+      const table = document.getElementById('topProductsTable');
+      const rows = table.querySelectorAll('tbody tr');
+      
+      doc.setFontSize(10);
+      doc.text("Product", 20, yPos);
+      doc.text("Units Sold", 100, yPos);
+      doc.text("Revenue", 150, yPos);
+      yPos += 10;
+
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        doc.text(cells[0].textContent, 20, yPos);
+        doc.text(cells[1].textContent, 100, yPos);
+        doc.text(cells[2].textContent, 150, yPos);
+        yPos += 10;
+      });
+
+      doc.save("sales_report.pdf");
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const today = new Date();
+      const thirtyDaysAgo = new Date(today);
+      thirtyDaysAgo.setDate(today.getDate() - 30);
+
+      document.getElementById('fromDate').value = thirtyDaysAgo.toISOString().split('T')[0];
+      document.getElementById('toDate').value = today.toISOString().split('T')[0];
+      
+      fetchReport();
+    });
+  </script>
+</body>
+</html>

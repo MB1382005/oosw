@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="robots" content="noarchive">
+
+    <title>Edit Profile | Medisphere</title>
+    <link rel="stylesheet" href="../css/profile.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <main class="profile-container">
+        <div class="profile-card">
+            <h2>Edit Profile</h2>
+            <form id="editProfileForm" class="profile-form">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                    <button type="button" onclick="window.location.href='profile.html'" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        async function fetchProfileData() {
+            try {
+                console.log('Fetching profile data...');
+                const response = await fetch('../../classes/get_profile.php', {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                const rawResponse = await response.text();
+                console.log('Raw response:', rawResponse);
+
+                const matches = rawResponse.match(/\{"success":true,"data":\{"user":[\s\S]*?\}\}/);
+                
+                if (!matches || matches.length === 0) {
+                    console.error('Could not find valid profile data in response');
+                    throw new Error('Could not find user profile data in response');
+                }
+                
+                const validJson = matches[0];
+                console.log('Found valid JSON of length:', validJson.length);
+                
+                const result = JSON.parse(validJson);
+                
+                console.log('Edit Profile API Response:', result);
+                
+                if (result.success) {
+                    const userData = result.data.user;
+                    document.getElementById('fname').value = userData.fname || '';
+                    document.getElementById('lname').value = userData.lname || '';
+                    document.getElementById('email').value = userData.email || '';
+                    document.getElementById('phone').value = userData.phone || '';
+                    document.getElementById('address').value = userData.address || '';
+                } else {
+                    console.error('Failed to fetch profile data:', result);
+                    
+                    if (result.message === 'User not logged in') {
+                        window.location.href = '../../login/login/login.html' ; 
+                        
+                        return;
+                    }
+                    
+                }
+            } catch (error) {
+                console.error('Error fetching profile:', error);
+            }
+        }
+
+        document.getElementById('editProfileForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                action: 'update_profile',
+                fname: document.getElementById('fname').value,
+                lname: document.getElementById('lname').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value
+            };
+
+            try {
+                console.log('Sending update request with data:', formData);
+                const response = await fetch('../../classes/update_profile.php', {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                console.log('Response status:', response.status);
+                console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+
+                const rawResponse = await response.text();
+                console.log('Raw update response:', rawResponse);
+
+                let result;
+                try {
+                    result = JSON.parse(rawResponse);
+                } catch (parseError) {
+                    console.error('JSON Parse Error:', parseError);
+                    console.error('Raw response that caused the error:', rawResponse);
+                    throw new Error('Invalid JSON response from server. Raw response: ' + rawResponse);
+                }
+
+                console.log('Update Profile Response:', result);
+                
+                if (result.success) {
+                    window.location.href = 'profile.html';
+                } else {
+                    console.error('Failed to update profile:', result);
+                }
+            } catch (error) {
+                console.error('Error updating profile:', error);
+                console.error('Full error details:', {
+                    message: error.message,
+                    stack: error.stack
+                });
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', fetchProfileData);
+    </script>
+</body>
+</html> 

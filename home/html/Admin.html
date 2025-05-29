@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noarchive">
+
+  <title>Admin Panel - Medisphere</title>
+  <link rel="stylesheet" href="../css/Admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="admin-navbar">
+    <h1><i class="fas fa-clinic-medical"></i> User management</h1>
+    <nav>
+      <a href="home2.html"><i class="fas fa-home"></i> Home</a>
+      <a href="admin_orders.html"><i class="fas fa-box"></i> Orders</a>
+      <a href="users.html"><i class="fas fa-users"></i> Users</a>
+      <a href="admin_product.html"><i class="fas fa-pills"></i> Products</a>
+      <a href="generate_report.html" class="active"><i class="fas fa-chart-line"></i> Report</a>
+
+      <a href="../../classes/logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <section class="dashboard-section">
+      <h2><i class="fas fa-tachometer-alt"></i> Welcome to Dashboard</h2>
+      <p>Manage your products, orders, and users from here</p>
+
+      <div class="stats">
+        <div class="stat-box">
+          <i class="fas fa-pills fa-2x"></i>
+          <h3>Products</h3>
+          <p>0</p>
+          <small>Available Items</small>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-shopping-cart fa-2x"></i>
+          <h3>Orders</h3>
+          <p>0</p>
+          <small>New Orders</small>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-users fa-2x"></i>
+          <h3>Users</h3>
+          <p>0</p>
+          <small>Active Users</small>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-money-bill-wave fa-2x"></i>
+          <h3>Sales</h3>
+          <p>0.00</p>
+          <small>EGP</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <script src="../js/Admin.js"></script>
+  <script src="../js/home2.js"></script>
+
+</body>
+</html>

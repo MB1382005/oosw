@@ -1,0 +1,232 @@
+  
+:root {  
+  --bg-primary: #1f1f2e;  
+  --bg-secondary: #2a2a3e;  
+  --accent: #1abc9c;  
+  --accent-hover: #16a085;  
+  --text: #ffffff;  
+  --muted: #b0b0c3;  
+  --radius: 12px;  
+  --gap: 1rem;  
+  --transition: 0.3s ease;  
+}  
+ 
+*, *::before, *::after {  
+  box-sizing: border-box;  
+  margin: 0;  
+  padding: 0;  
+}  
+ 
+body {  
+  font-family: 'Inter', 'Segoe UI', sans-serif;  
+  background: var(--bg-primary);  
+  color: var(--text);  
+  line-height: 1.6;  
+  overflow: hidden;  
+}  
+ 
+.footer{
+  position: fixed;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  background: var(--bg-secondary);  
+  padding: var(--gap);  
+  text-align: center;  
+  color: var(--text);
+  color : rgb(197, 10, 104)
+
+}
+
+.container {  
+  display: flex;  
+  height: 100vh;  
+  animation: fadeIn 0.8s var(--transition) both;  
+  transition: all 0.3s ease-in-out; 
+}  
+ 
+.sidebar {  
+  flex: 0 0 280px;  
+  background: rgba(42, 42, 62, 0.8);  
+  backdrop-filter: blur(10px);  
+  -webkit-backdrop-filter: blur(10px);  
+  padding: calc(var(--gap) * 2) var(--gap);  
+  display: flex;  
+  flex-direction: column;  
+  gap: var(--gap);  
+  border-radius: 0 var(--radius) var(--radius) 0;  
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);  
+  overflow-y: auto;  
+  scrollbar-width: thin;  
+  scrollbar-color: var(--muted) transparent;  
+  transition: all var(--transition); 
+}  
+ 
+.sidebar::-webkit-scrollbar {  
+  width: 6px;  
+}  
+.sidebar::-webkit-scrollbar-thumb {  
+  background: var(--muted);  
+  border-radius: 3px;  
+}  
+ 
+.sidebar h2 {  
+  font-size: 1.75rem;  
+  text-align: center;  
+  color: var(--text);  
+  margin-bottom: var(--gap);  
+  font-weight: 700; 
+  letter-spacing: 0.5px; 
+}  
+ 
+.content {  
+  flex: 1;  
+  padding: calc(var(--gap) * 2);  
+  background: var(--bg-secondary);  
+  border-radius: var(--radius) 0 0 var(--radius);  
+  overflow-y: auto;  
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+  transition: all var(--transition); 
+}  
+ 
+.content h1 {  
+  font-size: 2.25rem;  
+  margin-bottom: var(--gap);  
+  font-weight: 700; 
+  letter-spacing: 0.5px; 
+}  
+ 
+
+@keyframes fadeIn {  
+  from {  
+    opacity: 0;  
+    transform: translateY(20px);  
+  }  
+  to {  
+    opacity: 1;  
+    transform: translateY(0);  
+  }  
+}  
+ 
+  
+.btn,  
+.info-btn,  
+.strength-btn,  
+.infoStrengthButtons {  
+  display: inline-flex;  
+  align-items: center;  
+  justify-content: center;  
+  padding: 0.75rem 1.25rem;  
+  border: none;  
+  border-radius: var(--radius);  
+  background: var(--accent);  
+  color: var(--text);  
+  font-size: 1rem;  
+  font-weight: 600;  
+  cursor: pointer;  
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);  
+  width: auto;  
+}  
+ 
+.btn:hover,  
+.info-btn:hover,  
+.strength-btn:hover {  
+  background: var(--accent-hover);  
+  transform: translateY(-2px) scale(1.02);  
+  box-shadow: 0 6px 15px rgba(22, 160, 133, 0.4);  
+}  
+ 
+.btn:disabled {  
+  background: gray;  
+  cursor: not-allowed;  
+}  
+ 
+.info-btn.selected {  
+  background: #ffffff;  
+  color: var(--bg-primary);  
+  border: 2px solid var(--accent);  
+  transform: translateY(-2px) scale(1.02);  
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);  
+}  
+ 
+.strength-btn {  
+  text-align: left;  
+  background: var(--bg-primary);  
+  border: 2px solid transparent;  
+}  
+ 
+.strength-btn.selected {  
+  background: var(--accent);  
+  border-color: var(--accent-hover);  
+}  
+ 
+
+.input-group {  
+  margin: calc(var(--gap) * 1.5) 0;  
+}  
+ 
+.input-group.double {  
+  display: flex;  
+  gap: var(--gap);  
+  align-items: center;  
+}  
+ 
+label {  
+  display: block;  
+  margin-bottom: 0.5rem;  
+  font-size: 1rem;  
+  color: var(--text);  
+}  
+ 
+input,  
+select {  
+  width: 40%;  
+  padding: 0.75rem;  
+  border: none;  
+  border-radius: var(--radius);  
+  background: var(--bg-primary);  
+  color: var(--text);  
+  font-size: 1rem;  
+  transition: background var(--transition), box-shadow var(--transition);  
+}  
+ 
+.response-box {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #f0f0f0;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 15px;
+  white-space: pre-wrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  transition: all 0.3s ease;
+}
+
+input:focus,  
+select:focus {  
+  outline: none;  
+  box-shadow: 0 0 8px rgba(26, 188, 156, 0.5);  
+}  
+ 
+ 
+ul {  
+  list-style: disc inside;  
+  color: var(--text);  
+  margin: calc(var(--gap) * 1) 0;  
+}  
+ 
+@media (max-width: 768px) {  
+  .container {  
+    flex-direction: column;  
+  }  
+  .sidebar {  
+    width: 100%;  
+    border-radius: 0 0 var(--radius) var(--radius);  
+  }  
+  .content {  
+    border-radius: var(--radius) var(--radius) 0 0;  
+  }  
+}
