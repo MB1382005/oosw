@@ -1,3 +1,6 @@
 [submodule "vendor/firebase/php-jwt"]
 	path = vendor/firebase/php-jwt
 	url = https://github.com/firebase/php-jwt.git
+[submodule "vendor/google/apiclient"]
+	path = vendor/google/apiclient
+	url = https://github.com/googleapis/google-api-php-client.git
